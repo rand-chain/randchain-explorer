@@ -15,7 +15,7 @@ export const fetchBlocks = (timestamp = new Date().getTime()) => {
     const data = JSON.stringify({
       "jsonrpc": "2.0",
       "method": "getblocks",
-      "params": [0],
+      "params": [0, 10],
       "id": 1
     });
     var config = {
