@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import React, {useState} from "react";
+import {withRouter} from "react-router-dom";
 import InputBase from "@material-ui/core/InputBase";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
-const isTransactionHash = text =>
+const isBlockHash = text =>
   Boolean((text.match(/^[a-fA-F0-9]{64}$/g) || []).length);
 
 const useStyles = makeStyles(theme => ({
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Input = ({ history }) => {
+const Input = ({history}) => {
   const classes = useStyles();
 
   const [text, setText] = useState("");
@@ -31,20 +31,20 @@ const Input = ({ history }) => {
 
   const handleOnKeyPress = e => {
     if (e.keyCode === 13) {
-      if (isTransactionHash(text)) {
-        history.push(`transaction/${text}`);
+      if (isBlockHash(text)) {
+        history.push(`block/${text}`);
       }
     }
   };
 
   return (
     <InputBase
-      placeholder="Enter transaction hash..."
+      placeholder="Enter block hash..."
       classes={{
         root: classes.inputRoot,
         input: classes.inputInput
       }}
-      inputProps={{ "aria-label": "search" }}
+      inputProps={{"aria-label": "search"}}
       value={text}
       onChange={handleOnChange}
       onKeyDown={handleOnKeyPress}
