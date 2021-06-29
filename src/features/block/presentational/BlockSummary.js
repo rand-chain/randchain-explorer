@@ -10,15 +10,15 @@ const BlockSummary = ({
     bits,
     size,
     height,
+    difficulty,
+    iterations,
+    minerPubkey,
+    randomness,
   }
 }) => (
   <Card title={SUMMARY_TITLE}>
     <Table>
       <TableBody>
-        <TableRow>
-          <TableCell>Height</TableCell>
-          <TableCell>{height}</TableCell>
-        </TableRow>
         <TableRow>
           <TableCell>Bits</TableCell>
           <TableCell>{bits}</TableCell>
@@ -26,6 +26,26 @@ const BlockSummary = ({
         <TableRow>
           <TableCell>Size</TableCell>
           <TableCell>{size}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Height</TableCell>
+          <TableCell>{height}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Difficulty</TableCell>
+          <TableCell>{difficulty}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Iterations</TableCell>
+          <TableCell>{iterations}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Miner</TableCell>
+          <TableCell>{minerPubkey}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Randomness</TableCell>
+          <TableCell>{randomness}</TableCell>
         </TableRow>
       </TableBody>
     </Table>
