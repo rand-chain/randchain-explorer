@@ -1,7 +1,7 @@
 import axios from "axios";
 import {applyCORSToUrl, unixToDateString} from "../utils";
 import {FETCH_BLOCK} from "../constants/types";
-import {URL_BLOCK, URL_LOCAL_NODE} from "../constants/api";
+import {URL_LOCAL_NODE} from "../constants/api";
 
 const normalizeBlock = block => ({
   summary: {
