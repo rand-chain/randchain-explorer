@@ -10,11 +10,11 @@ const BlockLayout = ({blockHeight, summary, hashes}) => (
     </Typography>
 
     <Grid container spacing={3}>
-      <Grid item xs={6}>
-        {summary}
-      </Grid>
-      <Grid item xs={6} sm={6}>
+      <Grid item xs={12}>
         {hashes}
+      </Grid>
+      <Grid item xs={12}>
+        {summary}
       </Grid>
     </Grid>
   </>
