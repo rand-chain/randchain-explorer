@@ -12,8 +12,6 @@ const normalizeBlocks = ({blocks}) =>
 
 export const fetchBlocks = (timestamp = new Date().getTime()) => {
   return dispatch => {
-    // const url = applyCORSToUrl(`${URL_BLOCKS}/${timestamp}`);
-
     const data = JSON.stringify({
       "jsonrpc": "2.0",
       "method": "getblocks",
