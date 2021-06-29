@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "../../ui/Card";
-import { Table, TableBody, TableRow, TableCell } from "@material-ui/core";
+import {Table, TableBody, TableRow, TableCell} from "@material-ui/core";
 
 const HASHES_TITLE = "Hashes";
 
-const Hashes = ({ hashes: { hash, previousBlock, merkleRoot } }) => (
+const Hashes = ({hashes: {hash, previousBlockHash, nextBlockHash}}) => (
   <Card title={HASHES_TITLE}>
     <Table>
       <TableBody>
@@ -15,11 +15,11 @@ const Hashes = ({ hashes: { hash, previousBlock, merkleRoot } }) => (
         </TableRow>
         <TableRow>
           <TableCell>Previous Block</TableCell>
-          <TableCell>{previousBlock}</TableCell>
+          <TableCell>{previousBlockHash}</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell>Merkle</TableCell>
-          <TableCell>{merkleRoot}</TableCell>
+          <TableCell>Next Block</TableCell>
+          <TableCell>{nextBlockHash}</TableCell>
         </TableRow>
       </TableBody>
     </Table>
@@ -29,8 +29,8 @@ const Hashes = ({ hashes: { hash, previousBlock, merkleRoot } }) => (
 Hashes.propTypes = {
   hashes: PropTypes.shape({
     hash: PropTypes.string.isRequired,
-    previousBlock: PropTypes.string.isRequired,
-    merkleRoot: PropTypes.string.isRequired,
+    previousBlockHash: PropTypes.string.isRequired,
+    nextBlockHash: PropTypes.string.isRequired,
   }).isRequired,
 };
 

@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 
 const TITLE = "Summary";
 
-const HomeLayout = ({ graph, transactions, blocks }) => {
+const HomeLayout = ({graph, blocks}) => {
   return (
     <>
       <Typography variant="h4" gutterBottom>
@@ -15,10 +15,7 @@ const HomeLayout = ({ graph, transactions, blocks }) => {
         <Grid item xs={12}>
           {graph}
         </Grid>
-        <Grid item xs={12} sm={6}>
-          {transactions}
-        </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12}>
           {blocks}
         </Grid>
       </Grid>
@@ -27,7 +24,6 @@ const HomeLayout = ({ graph, transactions, blocks }) => {
 };
 HomeLayout.propTypes = {
   graph: PropTypes.element.isRequired,
-  transactions: PropTypes.element.isRequired,
   blocks: PropTypes.element.isRequired
 };
 
