@@ -1,5 +1,5 @@
 import axios from "axios";
-import {applyCORSToUrl, unixToDateString} from "../utils";
+import {unixToDateString} from "../utils";
 import {FETCH_BLOCKS} from "../constants/types";
 import {URL_LOCAL_NODE} from "../constants/api";
 
