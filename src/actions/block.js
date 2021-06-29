@@ -4,26 +4,24 @@ import {FETCH_BLOCK} from "../constants/types";
 import {URL_BLOCK, URL_LOCAL_NODE} from "../constants/api";
 
 const normalizeBlock = block => ({
-  transactions: block.tx.map(({weight, time, hash}) => ({
-    weight,
-    time: unixToDateString(time),
-    hash
-  })),
+  // transactions: block.tx.map(({weight, time, hash}) => ({
+  //   weight,
+  //   time: unixToDateString(time),
+  //   hash
+  // })),
   summary: {
-    transactionsCount: block.n_tx,
-    bits: block.bits,
-    size: block.size,
-    fee: block.fee,
-    time: unixToDateString(block.time),
-    height: block.height,
-    receivedTime: unixToDateString(block.received_time),
-    relayedBy: block.relayed_by
+    bits: block.result.bits,
+    size: block.result.size,
+    height: block.result.height,
+    difficulty: block.result.difficulty,
+    iterations: block.result.iterations,
+    minerPubkey: block.result.pubkeyHex,
+    randomness: block.result.randomnessHex,
   },
   hashes: {
-    hash: block.hash,
-    previousBlock: block.prev_block,
-    nextBlocks: block.next_block,
-    merkleRoot: block.mrkl_root
+    hash: block.result.hash,
+    previousBlockHash: block.result.previousblockhash,
+    nextBlockHash: block.result.nextblockhash,
   }
 });
 

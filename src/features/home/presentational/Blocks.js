@@ -6,7 +6,7 @@ import Card from "../../ui/Card";
 const HEAD_CELLS = ["Height", "Time", "Hash"];
 const TITLE = "Last 10 blocks";
 
-const Blocks = ({ blocks }) => (
+const Blocks = ({blocks}) => (
   <Card title={TITLE}>
     <Table headRow={HEAD_CELLS} bodyRows={blocks} />
   </Card>
