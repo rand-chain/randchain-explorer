@@ -3,19 +3,20 @@ import {unixToDateString} from "../utils";
 import {FETCH_BLOCKS} from "../constants/types";
 import {URL_LOCAL_NODE} from "../constants/api";
 
-const normalizeBlocks = ({blocks}) =>
-  blocks.map(({height, time, hash}) => ({
-    height,
-    time: unixToDateString(time),
-    hash
+// height, hash, randomness
+const normalizeBlocks = (blocks) =>
+  blocks.map(({height, hash, randomnessHex}) => ({
+    height: parseInt(height),
+    hash,
+    randomness: randomnessHex,
   }));
 
-export const fetchBlocks = (timestamp = new Date().getTime()) => {
+export const fetchBlocks = (start = 0, num = 10) => {
   return dispatch => {
     const data = JSON.stringify({
       "jsonrpc": "2.0",
       "method": "getblocks",
-      "params": [0, 10],
+      "params": [start, num],
       "id": 1
     });
     var config = {
@@ -31,7 +32,7 @@ export const fetchBlocks = (timestamp = new Date().getTime()) => {
       .then(({data}) => {
         dispatch({
           type: FETCH_BLOCKS,
-          payload: normalizeBlocks(data)
+          payload: normalizeBlocks(data.result),
         });
       })
       .catch(error => {

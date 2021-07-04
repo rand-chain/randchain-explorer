@@ -5,18 +5,18 @@ import {URL_LOCAL_NODE} from "../constants/api";
 
 const normalizeBlock = block => ({
   summary: {
-    bits: block.result.bits,
-    size: block.result.size,
-    height: block.result.height,
-    difficulty: block.result.difficulty,
-    iterations: block.result.iterations,
-    minerPubkey: block.result.pubkeyHex,
-    randomness: block.result.randomnessHex,
+    bits: block.bits,
+    size: block.size,
+    height: block.height,
+    difficulty: block.difficulty,
+    iterations: block.iterations,
+    minerPubkey: block.pubkeyHex,
+    randomness: block.randomnessHex,
   },
   hashes: {
-    hash: block.result.hash,
-    previousBlockHash: block.result.previousblockhash,
-    nextBlockHash: block.result.nextblockhash,
+    hash: block.hash,
+    previousBlockHash: block.previousblockhash,
+    nextBlockHash: block.nextblockhash,
   }
 });
 
@@ -38,7 +38,7 @@ export const fetchBlock = hash => {
     };
     return axios(config)
       .then(({data}) => {
-        dispatch({type: FETCH_BLOCK, payload: normalizeBlock(data)});
+        dispatch({type: FETCH_BLOCK, payload: normalizeBlock(data.result)});
       })
       .catch(error => {
         throw error;
