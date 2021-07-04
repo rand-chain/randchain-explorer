@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import TablePagination from "../ui/TablePagination";
 
-const HEAD_CELLS = ["Height", "Time", "Hash"];
+const HEAD_CELLS = ["Hash", "Height", "Randomness"];
 const TITLE = "Blocks";
 
-const BlocksLayout = ({ blocks, onBlockClick }) => (
+const BlocksLayout = ({blocks, onBlockClick}) => (
   <>
     <Typography variant="h4" gutterBottom>
       {TITLE}
@@ -23,9 +23,9 @@ const BlocksLayout = ({ blocks, onBlockClick }) => (
 BlocksLayout.propTypes = {
   blocks: PropTypes.arrayOf(
     PropTypes.shape({
-      height: PropTypes.number.isRequired,
       hash: PropTypes.string.isRequired,
-      time: PropTypes.string.isRequired
+      height: PropTypes.number.isRequired,
+      randomness: PropTypes.string.isRequired,
     }).isRequired
   ),
   onBlockClick: PropTypes.func.isRequired

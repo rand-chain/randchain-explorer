@@ -59,8 +59,8 @@ BlockSummary.propTypes = {
     height: PropTypes.number.isRequired,
     difficulty: PropTypes.number.isRequired,
     iterations: PropTypes.number.isRequired,
-    minerPubkey: PropTypes.number.isRequired,
-    randomness: PropTypes.number.isRequired,
+    minerPubkey: PropTypes.string.isRequired,
+    randomness: PropTypes.string.isRequired,
   }).isRequired,
 };
 
